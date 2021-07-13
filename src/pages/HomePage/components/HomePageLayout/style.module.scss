@@ -1,0 +1,22 @@
+.body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px;
+}
+
+.button{
+    width: 171px;
+    height: 50px;
+}
+
+.infoBlock{
+    max-width: 300px;
+    width: 100%;
+    height: 101px;
+    border: 1px solid black;
+    padding: 20px;
+    background: rgb(238, 249, 253);
+    text-align: center;
+}
