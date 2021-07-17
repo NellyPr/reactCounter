@@ -11,33 +11,37 @@ export default class CounterContainers extends Component {
     };
   }
 
+  componentDidUpdate(prevProps, prevStat, snapshot) {
+    if (prevStat.countValue !== this.state.countValue) {
+      this.setState({ isEven: this.state.countValue % 2 === 0 });
+    }
+  }
+
   handleIncrement = () => {
     this.setState((state) => {
       const incrementedValue = state.countValue + 1;
-      const isEven = incrementedValue % 2 === 0;
       return {
         countValue: incrementedValue,
-        isEven,
       };
     });
   };
 
   handleDecriment = () => {
-    this.setState((state) => {
-      const decrementedValue = Math.max(state.countValue - 1, 0);
-      const isEven = decrementedValue % 2 === 0;
-      return {
-        countValue: decrementedValue,
-        isEven,
-      };
-    });
+    if (this.state.countValue > 0) {
+      this.setState((state) => {
+        const decrementedValue = Math.max(state.countValue - 1, 0);
+        return {
+          countValue: decrementedValue,
+        };
+      });
+    }
   };
 
   handleReset = () => {
     this.setState({
-        countValue: 0,
-        isEven: true,
-      });
+      countValue: 0,
+      isEven: true,
+    });
   };
 
   render() {

@@ -15,7 +15,7 @@ const HomePageLayout = () => {
         </div>
 {        <div className={style.infoBlock}>
             This is HOME_PAGE 
-            <p>To go to COUNTER_PAGE, click menu</p>
+            <p>To go to COUNTER_PAGE, click menu)</p>
         </div>}
         </section>
     );
