@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {Link} from 'react-router-dom';
-import {ROUTES} from '../../../../routes/routeNames.js'
+/* import {Link} from 'react-router-dom';
+import {ROUTES} from '../../routes/routeNames.js' */
 import style from "./style.module.scss";
 
 const CounterView = ({
@@ -13,13 +13,6 @@ const CounterView = ({
 }) => {
   return (
     <section className={style.bodyPage}>
-      <div>
-      {Object.entries(ROUTES).map(([routeName, path]) => (
-                <Link to={path} key={path}>
-                    <button className={style.button}>{routeName}</button>
-                </Link>
-      ))}
-      </div>
       <div className={`${style.wrapper} ${isEven && style.evenBg}`}>
         <div className={style.display}> {countValue} </div>
         <div className={style.info}> {isEven ? "even number" : "odd number"}</div>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import CounterView from "../components/CounterView/index.js";
+/* import CounterView from "../components/CounterView/index.js"; */
+import CounterView from "../../../commonComponents/CounterView/index.js";
 
 export default class CounterContainers extends Component {
   constructor(props) {
