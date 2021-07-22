@@ -1,37 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useMemo } from "react";
 import CounterView from "../../../commonComponents/CounterView/index.js";
+import {useCounter} from "../../../hooks"
 
 const FunctionalCounterContainer = () => {
-  const [counterState, setCounterState] = useState({
-    countValue: 0,
-    isEven: true,
-  });
+  const [countValue, handleIncrement, handleDecriment, handleReset] = useCounter(0);
 
-  useEffect(() => {
-      setCounterState({
-          ...counterState,
-          isEven: counterState.countValue % 2 === 0,
-      })
-  }, [counterState.countValue]);
-
-  const handleIncrement = () => {
-    setCounterState({ countValue: counterState.countValue + 1 });
-  };
-
-  const handleDecriment = () => {
-    if (counterState.countValue > 0) {
-      setCounterState({ countValue: counterState.countValue - 1 });
-    }
-  };
-
-  const handleReset = () => {
-    setCounterState({countValue: 0})
-  }
-
+  const isEven = useMemo(() => {
+    return countValue % 2 === 0;
+  }, [countValue]);
+  
   return (
     <CounterView
-      countValue={counterState.countValue}
-      isEven={counterState.isEven}
+      countValue={countValue}
+      isEven={isEven}
       handleIncrement={handleIncrement}
       handleDecriment={handleDecriment}
       handleReset={handleReset}
