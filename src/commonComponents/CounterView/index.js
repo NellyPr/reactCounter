@@ -1,7 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-/* import {Link} from 'react-router-dom';
-import {ROUTES} from '../../routes/routeNames.js' */
 import style from "./style.module.scss";
 
 const CounterView = ({
@@ -10,6 +8,7 @@ const CounterView = ({
   handleIncrement,
   handleDecriment,
   handleReset,
+  onRemove,
 }) => {
   return (
     <section className={style.bodyPage}>
@@ -20,6 +19,7 @@ const CounterView = ({
           <button onClick={handleDecriment}>-</button>
           <button onClick={handleReset}>Reset</button>
           <button onClick={handleIncrement}>+</button>
+          <button onClick={onRemove}>Delete</button>
         </div>
       </div>
     </section>
